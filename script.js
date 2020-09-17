@@ -19,6 +19,9 @@ function generatePassword() {
   var numeric;
   var specialChar;
 
+  // boolean variable for checking if at least one character type was chosen for the password
+  var characterChoice = false;
+
   //while loop checks to see if password length is the proper size and continues to ask the user for the correct size until passwordLength meets size requirements
 
   while (passwordLength < 8 || passwordLength > 128) {
@@ -35,25 +38,32 @@ function generatePassword() {
     } else console.log(passwordLength);
   }
 
-  // prompts users for the type of characters to include in the password and sets the corresponding boolean variable to true or false based on the input
-  lowerCase = confirm("Include lowercase characters?");
-  console.log("Lowercase Characters: " + lowerCase);
-  upperCase = confirm("Include uppercase characters?");
-  console.log("Uppercase Characters: " + upperCase);
-  numeric = confirm("Include numeric characters?");
-  console.log("Numeric Characters: " + numeric);
-  specialChar = confirm("Include special characters?");
-  console.log(`Special Characters: ${specialChar}`);
+  // while loop checks to see if a valid character type was chosen, if not, the user is asked to confirm character types again
+  while (characterChoice === false) {
+    // prompts users for the type of characters to include in the password and sets the corresponding boolean variable to true or false based on the input
+    lowerCase = confirm("Click OK to confirm using lowercase characters.");
+    console.log("Lowercase Characters: " + lowerCase);
+    upperCase = confirm("Click OK to confirm using uppercase characters.");
+    console.log("Uppercase Characters: " + upperCase);
+    numeric = confirm("Click OK to confirm using numeric characters.");
+    console.log("Numeric Characters: " + numeric);
+    specialChar = confirm("Click OK to confirm using special characters.");
+    console.log(`Special Characters: ${specialChar}`);
 
-  // validates user input of character types to ensure at least 1 character type is included
-  if (
-    lowerCase === true ||
-    upperCase === true ||
-    numeric === true ||
-    specialChar === true
-  ) {
-    console.log("You are good!");
-  } else console.log("Nope try again");
+    // validates user input of character types to ensure at least 1 character type is included
+    if (
+      lowerCase === true ||
+      upperCase === true ||
+      numeric === true ||
+      specialChar === true
+    ) {
+      characterChoice = true;
+      console.log("You are good!");
+    } else {
+      alert("You need to choose at least one type of character to use.");
+    }
+  }
+  console.log(`Character chosen: ${characterChoice}`);
   return `A ${passwordLength} size string for the password!`;
 }
 // Add event listener to generate button
