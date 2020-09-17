@@ -10,6 +10,15 @@ function writePassword() {
 }
 
 function generatePassword() {
+  // declaration of initial character sets
+  var lowerCaseCharString = "abcdefghijklmnopqrstuvwxyz";
+  var upperCaseCharString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  var specialCharString = " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
+  var numericCharString = "0123456789";
+
+  // declaration of password character set
+  var passwordCharSet = "";
+
   //set initial password length to 0 to initial while loop
   var passwordLength = 0;
 
@@ -35,21 +44,47 @@ function generatePassword() {
       alert("Password length must be longer than 8 characters!");
     } else if (passwordLength > 128) {
       alert("Password length must be less than 129 characters");
-    } else console.log(passwordLength);
+    } //else console.log(passwordLength);
   }
 
   // while loop checks to see if a valid character type was chosen, if not, the user is asked to confirm character types again
   while (characterChoice === false) {
     // prompts users for the type of characters to include in the password and sets the corresponding boolean variable to true or false based on the input
     lowerCase = confirm("Click OK to confirm using lowercase characters.");
-    console.log("Lowercase Characters: " + lowerCase);
-    upperCase = confirm("Click OK to confirm using uppercase characters.");
-    console.log("Uppercase Characters: " + upperCase);
-    numeric = confirm("Click OK to confirm using numeric characters.");
-    console.log("Numeric Characters: " + numeric);
-    specialChar = confirm("Click OK to confirm using special characters.");
-    console.log(`Special Characters: ${specialChar}`);
+    //console.log("Lowercase Characters: " + lowerCase);
 
+    // if the user confirms the use of lowercase characters, the lowercase character set string is added to the password character set string
+    if (lowerCase) {
+      passwordCharSet += lowerCaseCharString;
+    }
+    //console.log(passwordCharSet);
+
+    upperCase = confirm("Click OK to confirm using uppercase characters.");
+    //console.log("Uppercase Characters: " + upperCase);
+
+    // if the user confirms the use of uppercase characters, the lowercase character set string is added to the password character set string
+    if (upperCase) {
+      passwordCharSet += upperCaseCharString;
+    }
+    //console.log(passwordCharSet);
+
+    numeric = confirm("Click OK to confirm using numeric characters.");
+    //console.log("Numeric Characters: " + numeric);
+
+    // if the user confirms the use of numeric characters, the lowercase character set string is added to the password character set string
+    if (numeric) {
+      passwordCharSet += numericCharString;
+    }
+    //console.log(passwordCharSet);
+
+    specialChar = confirm("Click OK to confirm using special characters.");
+    //console.log(`Special Characters: ${specialChar}`);
+
+    // if the user confirms the use of special characters, the lowercase character set string is added to the password character set string
+    if (specialChar) {
+      passwordCharSet += specialCharString;
+    }
+    console.log(passwordCharSet);
     // validates user input of character types to ensure at least 1 character type is included
     if (
       lowerCase === true ||
@@ -58,13 +93,20 @@ function generatePassword() {
       specialChar === true
     ) {
       characterChoice = true;
-      console.log("You are good!");
+      //console.log("You are good!");
     } else {
       alert("You need to choose at least one type of character to use.");
     }
   }
-  console.log(`Character chosen: ${characterChoice}`);
-  return `A ${passwordLength} size string for the password!`;
+
+  //console.log(`Character chosen: ${characterChoice}`);
+  //console.log(`A ${passwordLength} size string for the password!`);
+  console.log(passwordCharSet);
+  console.log(passwordCharSet.length);
+
+  //console.log(lowerCaseCharString.length);
+  //console.log(upperCaseCharString.length);
+  //console.log(specialCharString.length);
 }
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
