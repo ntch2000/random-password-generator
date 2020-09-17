@@ -27,11 +27,11 @@ function generatePassword() {
       "What length of password would you like to generate?"
     );
 
-    // Checks to see if passwordLength is of the correct size
-    if (passwordLength < 8 || passwordLength > 128) {
-      alert(
-        "Password length must be longer than 8 characters and less than 129 characters"
-      );
+    // Checks to see if passwordLength is of the correct size and alerts user on the proper size if password length is of the wrong size
+    if (passwordLength < 8) {
+      alert("Password length must be longer than 8 characters!");
+    } else if (passwordLength > 128) {
+      alert("Password length must be less than 129 characters");
     } else console.log(passwordLength);
   }
 
