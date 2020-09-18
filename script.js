@@ -113,7 +113,7 @@ function generatePassword() {
   //var test = Math.floor(Math.random() * passwordCharSet.length);
 
   // sets the upper bounds of random number generator to the length of the password character set + 1.
-  var numCharacterOptions = passwordCharSet.length + 1;
+  var numCharacterOptions = passwordCharSet.length;
 
   // initiate the index of the password character set string
   var passwordCharIndex;
