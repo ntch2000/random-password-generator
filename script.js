@@ -46,22 +46,30 @@ function generatePassword() {
     passwordLength = prompt(
       "What length of password would you like to generate?"
     );
-    //console.log(Number.isInteger(passwordLength));
-    //console.log(Number.isInteger(+passwordLength));
-    // Checks to see if passwordLength is of the correct size and alerts user on the proper size if password length is of the wrong size
-    if (passwordLength < 8) {
-      alert("Password length must be longer than 8 characters!");
-    } else if (passwordLength > 128) {
-      alert("Password length must be less than 129 characters");
-    } else if (
-      // conditional to check to see if input entered is no a number (NaN) or not an integer. If so, alerts the user to enter the correct size integer
-      isNaN(passwordLength) ||
-      Number.isInteger(+passwordLength) != true
-    ) {
-      alert(
-        "Password length must be an integer greater than 8 and less than 129."
-      );
+    if (passwordLength === null) {
+      break;
+    } else {
+      //console.log(Number.isInteger(passwordLength));
+      //console.log(Number.isInteger(+passwordLength));
+      // Checks to see if passwordLength is of the correct size and alerts user on the proper size if password length is of the wrong size
+      if (passwordLength < 8) {
+        alert("Password length must be longer than 8 characters!");
+      } else if (passwordLength > 128) {
+        alert("Password length must be less than 129 characters");
+      } else if (
+        // conditional to check to see if input entered is no a number (NaN) or not an integer. If so, alerts the user to enter the correct size integer
+        isNaN(passwordLength) ||
+        Number.isInteger(+passwordLength) != true
+      ) {
+        alert(
+          "Password length must be an integer greater than 8 and less than 129."
+        );
+      }
     }
+  }
+
+  if (passwordLength === null) {
+    return "User cancelled Password Generation";
   }
   console.log(+passwordLength);
   // while loop checks to see if a valid character type was chosen, if not, the user is asked to confirm character types again
