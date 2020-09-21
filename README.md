@@ -93,3 +93,10 @@ You are required to submit the following for review:
 ---
 
 © 2020 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
+
+---
+
+## Development Notes
+
+- utilized the isNaN function to check if the password entered is a number. This function will convert any number that is a string to a number before checking.
+- also had to check if the number entered was an integer using the unary operator '+' allowing the code to check if password length was an integer using Number.isInteger()

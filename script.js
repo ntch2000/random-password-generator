@@ -33,22 +33,37 @@ function generatePassword() {
 
   var finalPasswordString = "";
 
-  //while loop checks to see if password length is the proper size and continues to ask the user for the correct size until passwordLength meets size requirements
+  // while loop checks to see if password length is the proper size and continues to ask the user for the correct size until passwordLength meets size requirements
+  // checks to make sure the password length entered is an integer
 
-  while (passwordLength < 8 || passwordLength > 128) {
+  while (
+    passwordLength < 8 ||
+    passwordLength > 128 ||
+    isNaN(passwordLength) ||
+    Number.isInteger(+passwordLength) != true
+  ) {
     // Prompts user for the password length
     passwordLength = prompt(
       "What length of password would you like to generate?"
     );
-
+    //console.log(Number.isInteger(passwordLength));
+    //console.log(Number.isInteger(+passwordLength));
     // Checks to see if passwordLength is of the correct size and alerts user on the proper size if password length is of the wrong size
     if (passwordLength < 8) {
       alert("Password length must be longer than 8 characters!");
     } else if (passwordLength > 128) {
       alert("Password length must be less than 129 characters");
-    } //else console.log(passwordLength);
+    } else if (
+      // conditional to check to see if input entered is no a number (NaN) or not an integer. If so, alerts the user to enter the correct size integer
+      isNaN(passwordLength) ||
+      Number.isInteger(+passwordLength) != true
+    ) {
+      alert(
+        "Password length must be an integer greater than 8 and less than 129."
+      );
+    }
   }
-
+  console.log(+passwordLength);
   // while loop checks to see if a valid character type was chosen, if not, the user is asked to confirm character types again
   while (characterChoice === false) {
     // prompts users for the type of characters to include in the password and sets the corresponding boolean variable to true or false based on the input
