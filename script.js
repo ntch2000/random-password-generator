@@ -46,11 +46,10 @@ function generatePassword() {
     passwordLength = prompt(
       "What length of password would you like to generate?"
     );
+    // breaks out of the while loop if the user hits cancel during the prompt
     if (passwordLength === null) {
       break;
     } else {
-      //console.log(Number.isInteger(passwordLength));
-      //console.log(Number.isInteger(+passwordLength));
       // Checks to see if passwordLength is of the correct size and alerts user on the proper size if password length is of the wrong size
       if (passwordLength < 8) {
         alert("Password length must be longer than 8 characters!");
@@ -68,48 +67,42 @@ function generatePassword() {
     }
   }
 
+  // if the user cancels out of the prompt for password length, the function returns a message stating the password  generation was cancelled
   if (passwordLength === null) {
     return "User cancelled Password Generation";
   }
-  console.log(+passwordLength);
+
   // while loop checks to see if a valid character type was chosen, if not, the user is asked to confirm character types again
   while (characterChoice === false) {
     // prompts users for the type of characters to include in the password and sets the corresponding boolean variable to true or false based on the input
     lowerCase = confirm("Click OK to confirm using lowercase characters.");
-    //console.log("Lowercase Characters: " + lowerCase);
 
     // if the user confirms the use of lowercase characters, the lowercase character set string is added to the password character set string
     if (lowerCase) {
       passwordCharSet += lowerCaseCharString;
     }
-    //console.log(passwordCharSet);
 
     upperCase = confirm("Click OK to confirm using uppercase characters.");
-    //console.log("Uppercase Characters: " + upperCase);
 
     // if the user confirms the use of uppercase characters, the lowercase character set string is added to the password character set string
     if (upperCase) {
       passwordCharSet += upperCaseCharString;
     }
-    //console.log(passwordCharSet);
 
     numeric = confirm("Click OK to confirm using numeric characters.");
-    //console.log("Numeric Characters: " + numeric);
 
     // if the user confirms the use of numeric characters, the lowercase character set string is added to the password character set string
     if (numeric) {
       passwordCharSet += numericCharString;
     }
-    //console.log(passwordCharSet);
 
     specialChar = confirm("Click OK to confirm using special characters.");
-    //console.log(`Special Characters: ${specialChar}`);
 
     // if the user confirms the use of special characters, the lowercase character set string is added to the password character set string
     if (specialChar) {
       passwordCharSet += specialCharString;
     }
-    console.log(passwordCharSet);
+
     // validates user input of character types to ensure at least 1 character type is included
     if (
       lowerCase === true ||
@@ -118,35 +111,21 @@ function generatePassword() {
       specialChar === true
     ) {
       characterChoice = true;
-      //console.log("You are good!");
     } else {
       alert("You need to choose at least one type of character to use.");
     }
   }
 
-  //console.log(`Character chosen: ${characterChoice}`);
-  //console.log(`A ${passwordLength} size string for the password!`);
-  // console.log(passwordCharSet);
-  // console.log(passwordCharSet.length);
-
-  //console.log(lowerCaseCharString.length);
-  //console.log(upperCaseCharString.length);
-  //console.log(specialCharString.length);
-
-  //var test = Math.floor(Math.random() * passwordCharSet.length);
-
-  // sets the upper bounds of random number generator to the length of the password character set + 1.
+  // sets the upper bounds of random number generator to the length of the password character set.
   var numCharacterOptions = passwordCharSet.length;
 
   // initiate the index of the password character set string
   var passwordCharIndex;
-  //console.log(test);
 
   // this loops through the length of the user desired password
   for (i = 0; i < passwordLength; i++) {
     // generates a random number and sets it to the index to pick a character
     passwordCharIndex = Math.floor(Math.random() * numCharacterOptions);
-    console.log(passwordCharIndex);
 
     //the final password string is built by adding a random character from the password character set to the final string. The random character is based on a random index that is chosen
     finalPasswordString += passwordCharSet[passwordCharIndex];
