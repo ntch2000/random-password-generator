@@ -1,12 +1,19 @@
 # random-password-generator
 
-# 03 JavaScript: Password Generator
+## Description
 
-## Your Task
+This web application allows for the generation of a random password based on criteria options selected by the user. The application runs in the browser and features dynamically updated HTML and CSS powered by JavaScript.
 
-This week’s homework requires you to create an application that an employee can use to generate a random password based on criteria they’ve selected by modifying starter code. This app will run in the browser, and will feature dynamically updated HTML and CSS powered by JavaScript code that you write. It will have a clean and polished user interface that is responsive, ensuring that it adapts to multiple screen sizes.
+## Table of Contents
 
-The password can include special characters. If you’re unfamiliar with these, see this [list of Password Special Characters from the OWASP Foundation](https://www.owasp.org/index.php/Password_special_characters).
+- [Description](#description)
+- [User Story](#user-story)
+- [Acceptance Criteria](#acceptance-criteria)
+- [Installation](#installation)
+- [Application Screenshot](#application-screenshot)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Credits](#credits)
 
 ## User Story
 
@@ -35,6 +42,17 @@ THEN a password is generated that matches the selected criteria
 WHEN the password is generated
 THEN the password is either displayed in an alert or written to the page
 ```
+
+## Installation
+
+## Application Screenshot
+
+![Random Password Generator Screenshot](./images/random-password-generator-application.png "Random Password Generator Application")
+_Sample application screenshot of a 128 character password generated with all types of characters._
+
+## Usage
+
+## Credits
 
 ## Mock-Up
 
