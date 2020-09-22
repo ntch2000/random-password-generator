@@ -123,7 +123,7 @@ function generatePassword() {
   var passwordCharIndex;
 
   // this loops through the length of the user desired password
-  for (i = 0; i < passwordLength; i++) {
+  for (var i = 0; i < passwordLength; i++) {
     // generates a random number and sets it to the index to pick a character
     passwordCharIndex = Math.floor(Math.random() * numCharacterOptions);
 
