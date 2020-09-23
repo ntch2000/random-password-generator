@@ -6,7 +6,6 @@ This web application allows for the generation of a random password based on cri
 
 ## Table of Contents
 
-- [Description](#description)
 - [User Story](#user-story)
 - [Acceptance Criteria](#acceptance-criteria)
 - [Installation](#installation)
@@ -45,6 +44,10 @@ THEN the password is either displayed in an alert or written to the page
 
 ## Installation
 
+In order to view this application, please visit the main page https://ntch2000.github.io/random-password-generator/.
+
+To see the code base for this page, visit my github page https://github.com/ntch2000/random-password-generator. The code can be viewed directly in the github repository or downloaded and viewed in Visual Studio Code.
+
 ## Application Screenshot
 
 ![Random Password Generator Screenshot](./images/random-password-generator-application.png "Random Password Generator Application")
@@ -52,69 +55,26 @@ _Sample application screenshot of a 128 character password generated with all ty
 
 ## Usage
 
+This application can be used to generate a random password between 8 and 128 characters long. This password will use a combination of lowercase, uppercase, numeric, and special characters based on the input from the user.
+
+When the 'Generate Password' button is pressed, the application will prompt the user to enter the desired length of password, and will follow with prompts for each type of character to be used. After the user enters their inputs, a password will randomly be generated and output to the application page, meeting the requirements specified.
+
+## Development Challenges
+
+One of the first major challenges for this application was the input validation for the types of characters to be used in the password. Because at least one type of character needed to be used, a boolean value was used in a conditional statement to check for the use of each character type. If any one of the boolean values were true, the code would continue and another variable (characterChoice) was set to true indicating that an available set of characters could be used. This logic was nested within a while loop that would continue until a valid choice was made.
+
+The second major challenge was creating the overall character string (passwordCharSet) to be used to create the password. The best way to accomplish this was to check if the user selected a character set with a boolean variable and add the corresponding character string to passwordCharSet. If the boolean was false, this meant the user did not want to use that particular type of character and the set would not be added.
+
+Ensuring error checking edge cases were accounted for was another difficult task that required utilizing MDN Web Docs to find functions and methods to check for the data type for the user's input. Since the prompt() function returns a string, there needed to be a check to ensure the input was a number and not a word. To accomplish this, isNaN() was used. This function returns a boolean value if the variable is a number, even if the data type is a string number. Once this was verified, there needed to be a way of checking if the input was an integer. To do this, the Number.isInteger() method. This method checks to ensure the passwordLength variable is a whole number. In order for this to work, the variable needs to be a number and not a string. The easiest way to accomplish this was to use the unary operator (+), which converts the variable to a positive number.
+
+Finally, the application needed a way to cancel out of the application. This was done by checking if the user clicked the cancel button when prompted for password length. If the password length returned null, or no input, the function returns a cancel message to the screen.
+
 ## Credits
 
-## Mock-Up
+Resources used to help develop this application are as follows.
 
-The following image shows the web application's appearance and functionality:
-
-![password generator demo](./Assets/03-javascript-homework-demo.png)
-
-## Grading Requirements
-
-This homework is graded based on the following criteria:
-
-### Technical Acceptance Criteria: 40%
-
-- Satisfies all of the above acceptance criteria plus the following:
-
-  - The homework should not produce any errors in the console when you inspect it using Chrome DevTools.
-
-### Deployment: 32%
-
-- Application deployed at live URL.
-
-- Application loads with no errors.
-
-- Application GitHub URL submitted.
-
-- GitHub repository that contains application code.
-
-### Application Quality: 15%
-
-- Application user experience is intuitive and easy to navigate.
-
-- Application user interface style is clean and polished.
-
-- Application resembles the mock-up functionality provided in the homework instructions.
-
-### Repository Quality: 13%
-
-- Repository has a unique name.
-
-- Repository follows best practices for file structure and naming conventions.
-
-- Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-- Repository contains multiple descriptive commit messages.
-
-- Repository contains quality README file with description, screenshot, and link to deployed application.
-
-## Review
-
-You are required to submit the following for review:
-
-- The URL of the deployed application.
-
-- The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
+- The [Mozilla MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript) website was used to reference JavaScript information to accomplish data and user input validation for the application.
 
 ---
 
-© 2020 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
-
----
-
-## Development Notes
-
-- utilized the isNaN function to check if the password entered is a number. This function will convert any number that is a string to a number before checking.
-- also had to check if the number entered was an integer using the unary operator '+' allowing the code to check if password length was an integer using Number.isInteger()
+© 2020 Neil Gandhi
