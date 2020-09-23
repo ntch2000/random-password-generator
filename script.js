@@ -69,7 +69,7 @@ function generatePassword() {
 
   // if the user cancels out of the prompt for password length, the function returns a message stating the password  generation was cancelled
   if (passwordLength === null) {
-    return "User cancelled Password Generation";
+    return "User canceled Password Generation";
   }
 
   // while loop checks to see if a valid character type was chosen, if not, the user is asked to confirm character types again
