@@ -48,16 +48,43 @@ In order to view this application, please visit the main page https://ntch2000.g
 
 To see the code base for this page, visit my github page https://github.com/ntch2000/random-password-generator. The code can be viewed directly in the github repository or downloaded and viewed in Visual Studio Code.
 
-## Application Screenshot
+## Application Screenshots
 
-![Random Password Generator Screenshot](./images/random-password-generator-application.png "Random Password Generator Application")
-_Sample application screenshot of a 128 character password generated with all types of characters._
+![Password Length Prompt](./images/password-length-prompt.jpg "Password Length Prompt")
+_Sample application screenshot of password length user prompt._
+
+![Password Character Prompt](./images/lowercase-type-prompt.jpg "Password Character Confirm")
+_Sample application screenshot of confirm message for using lowercase characters._
+
+![Password Character Prompt](./images/uppercase-type-prompt.jpg "Password Character Confirm")
+_Sample application screenshot of confirm message for using uppercase characters._
+
+![Password Character Prompt](./images/num-type-prompt.jpg "Password Character Confirm")
+_Sample application screenshot of confirm message for using numeric characters._
+
+![Password Character Prompt](./images/special-char-type-prompt.jpg "Password Character Confirm")
+_Sample application screenshot of confirm message for using special characters._
+
+![128 Character Password](./images/128-char-password.jpg "128 Character Password with all character types")
+_Sample application screenshot of a 128 character password, using all character types (lowercase, uppercase, numeric, and special characters)._
 
 ## Usage
 
 This application can be used to generate a random password between 8 and 128 characters long. This password will use a combination of lowercase, uppercase, numeric, and special characters based on the input from the user.
 
 When the 'Generate Password' button is pressed, the application will prompt the user to enter the desired length of password, and will follow with prompts for each type of character to be used. After the user enters their inputs, a password will randomly be generated and output to the application page, meeting the requirements specified.
+
+The following series of events will occur:
+
+1. Users will be prompted for a password greater than 8 and less than 129 characters in length.
+2. Users will be asked to confirm at least one type of character to be used in the password based on the following:
+
+   - Lowercase characters
+   - Uppercase characters
+   - Numeric characters
+   - Special characters
+
+3. Password will be generated based on the choices from the previous steps.
 
 ## Development Challenges
 
