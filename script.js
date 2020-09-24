@@ -40,7 +40,7 @@ function generatePassword() {
     passwordLength < 8 ||
     passwordLength > 128 ||
     isNaN(passwordLength) ||
-    Number.isInteger(+passwordLength) != true
+    Number.isInteger(+passwordLength) !== true
   ) {
     // Prompts user for the password length
     passwordLength = prompt(
@@ -58,7 +58,7 @@ function generatePassword() {
       } else if (
         // conditional to check to see if input entered is no a number (NaN) or not an integer. If so, alerts the user to enter the correct size integer
         isNaN(passwordLength) ||
-        Number.isInteger(+passwordLength) != true
+        Number.isInteger(+passwordLength) !== true
       ) {
         alert(
           "Password length must be an integer greater than 8 and less than 129."
